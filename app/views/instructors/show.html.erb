@@ -1,0 +1,23 @@
+<h1><%= @instructor.name %></h1>
+
+<!-- need to account for professors without studnets, where parts may be nil-->
+
+<p>
+<% if @instructor.students.empty? %>
+    Students: This instructor has no current students. 
+    <br/>
+    Average Student Age: 0
+<% else %>
+   Students:
+        <ul>
+            <% @instructor.name_alphabetical_sort.each do |s| %>
+                <li><%= link_to s.name, s %></li>
+            <% end %>
+        </ul>
+    <br/>
+    Average Student Age: <%= @instructor.avg_student_age %> 
+<% end %>
+</p>
+
+
+
